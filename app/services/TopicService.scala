@@ -10,46 +10,32 @@ object TopicService {
     Topic(
       id = "uOrnCvEHnT",
       title = "Il faut verser le lait avant les céréales",
-      desc = """I want to append an element to another element. Problem is that the 'target element' is only identified by a class and this class is used twice. **In my case i want to append to the last/second presence of the element.** Check fiddle here for a visualization
-
-This should _not_ be a link: <a href="hehe">JSFiddle</a>.
-
-## Start point:
-
-    <div class="container">
-        <div class="myClass">This is a <strong>not</strong> the target</div>
-        <div class="myClass">This is the target</div>
-    </div>
-    <div class="container2">
-        <div class="source">This is the source</div>
-    </div>
-
-Which appends ".source" to both divs with the class ".myClass".""",
+      desc = """Les services secrets arméniens conseillent de verser le lait _avant_ les céréales et menacent les contrevenants de remplacer leur lait par du coca.""",
       urls = Seq(
         "http://truc.com"
       ),
       comments = Seq(
-        Comment("Hey, I can only agree with you"),
-        Comment("Same here"),
-        Comment("+1")
+        Comment("Comme même c'est fou"),
+        Comment("Moi je fais toujours comme ça donc je m'en fou"),
+        Comment("QUOI QUOI QUOI?")
       ),
       answers = Seq(
         Answer(
-          value = -1,
-          content = """You can use the :last selector:
-
-    $(".source").appendTo(".myClass:last");
-
-Updated fiddle""",
-          votes = Votes(53, 3),
-          comments = Seq(Comment("Nice catch"))
+          value = 1,
+          content = """Moi je préfère y mettre du chocolat au lait""",
+          votes = Votes(1, 212),
+          comments = Seq(
+            Comment("Euh… on s'en fout ?"),
+            Comment("Moi ça m'a ému :'-)")
+          )
         ),
         Answer(
-          value = 1,
-          content = "Honestly, I really don't know...",
+          value = -1,
+          content = "C'est n'imp'. En Arménie on boit de la bière au petit déj.",
+          votes = Votes(34, 5),
           comments = Seq(
-            Comment("Then why did you answered?"),
-            Comment("That naab, lol")
+            Comment("Je dois avoir du sang arménien !"),
+            Comment("Moa oci mdr")
           )
         )
       ),

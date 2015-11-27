@@ -15,6 +15,8 @@ case class Topic(
 ) {
   def nAnswers = answers.size
   def confidence = {
-    answers.map(a => a.impact * 10).foldLeft(50.0){_ + _}
+    answers.map { a =>
+      if (a.confidence > 0) a.impact * a.confidence * 10 else 0
+    }.foldLeft(50.0){_ + _}
   }
 }
