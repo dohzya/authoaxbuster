@@ -1,0 +1,53 @@
+@(topic: models.Topic, md2html: String => String)
+
+@import java.time.format.DateTimeFormatter
+
+@main("Desinthoax") {
+
+  <h1>Desinthoax</h1>
+
+  <article class="topic">
+    <div class="topic-title">@topic.title</div>
+    <div class="topic-detail">
+      <div class="topic-detail-note note">
+        <span class="note-up">▲</span>
+        <span class="note-value">@topic.note.value</span>
+        <span class="note-down">▼</span>
+      </div>
+      <div class="topic-detail-question">
+        <article class="topic-detail-question-desc">
+          @Html(md2html(topic.desc))
+        </article>
+        <div class="topic-detail-question-comments">
+          @topic.comments.map { comment =>
+            <section class="comment">@Html(md2html(comment.content))</section>
+          }
+          <section class="add-comment">Add a comment</section>
+        </div>
+      </div>
+    </div>
+    <div class="topic-answers">
+      @topic.answers.sortBy(_.note).map { answer =>
+        <section class="topic-answer">
+          <div class="topic-answer-note note">
+            <span class="note-up">▲</span>
+            <span class="note-value">@answer.note.value</span>
+            <span class="note-down">▼</span>
+          </div>
+          <div class="topic-answer-content">
+            <article class="topic-answer-content-content">
+              @Html(md2html(answer.content))
+            </article>
+            <div class="topic-answer-comments">
+              @answer.comments.map { comment =>
+                <section class="comment">@Html(md2html(comment.content))</section>
+              }
+              <section class="add-comment">Add a comment</section>
+            </div>
+          </div>
+        </section>
+      }
+    </div>
+  </article>
+
+}

@@ -1,7 +1,36 @@
-@(message: String)
+@(topics: Seq[models.Topic])
 
-@main("Welcome to Play") {
+@import java.time.format.DateTimeFormatter
 
-    @play20.welcome(message)
+@main("Desinthoax") {
+
+  <h1>Desinthoax</h1>
+
+  <ol class="topic-list">
+    @topics.map { topic =>
+      <li class="topic-list-item">
+        <div class="topic-list-item-nvotes">
+          <span class="inline-value">@topic.note.value</span>
+          <span class="inline-label">votes</span>
+        </div>
+        <div class="topic-list-item-nanswers">
+          <span class="inline-value">@topic.nAnswers</span>
+          <span class="inline-label">answers</span>
+        </div>
+        <div class="topic-list-item-nviews">
+          <span class="inline-value">@topic.nViews</span>
+          <span class="inline-label">views</span>
+        </div>
+        <div class="topic-list-item-title">
+          <a href="@routes.Application.show(topic.id)">@topic.title</a>
+        </div>
+        <div class="topic-list-item-creationdate">
+          <time datetime="@topic.creationDate.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)">
+            @topic.creationDate.format(DateTimeFormatter.ofPattern("YYYY-MM-dd"))
+          </time>
+        </div>
+      </li>
+    }
+  </ol>
 
 }

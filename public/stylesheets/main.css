@@ -1,0 +1,156 @@
+body {
+  background: #fff;
+}
+
+a,
+a:visited {
+  font-weight: 600;
+
+  text-decoration: none;
+
+  color: #0956bb;
+}
+
+.topic-list-item {
+  line-height: 2em;
+
+  list-style: none;
+
+  border-bottom: 1px solid #e0e0e0;
+}
+.topic-list-item:first-child {
+  border-top: 1px solid #e0e0e0;
+}
+.topic-list-item .inline-value {
+  display: block;
+
+  vertical-align: middle;
+}
+.topic-list-item .inline-label {
+  display: block;
+
+  vertical-align: middle;
+}
+.topic-list-item-nvotes {
+  display: inline-block;
+
+  width: 5em;
+
+  text-align: center;
+  vertical-align: middle;
+}
+.topic-list-item-nanswers {
+  display: inline-block;
+
+  width: 5em;
+
+  text-align: center;
+  vertical-align: middle;
+}
+.topic-list-item-nviews {
+  display: inline-block;
+
+  width: 5em;
+
+  text-align: center;
+  vertical-align: middle;
+}
+.topic-list-item-title {
+  display: inline-block;
+}
+.topic-list-item-creationdate {
+  font-size: .8em;
+  line-height: 5em;
+
+  position: absolute;
+  right: 0;
+
+  display: inline-block;
+
+  width: 10em;
+
+  vertical-align: middle;
+
+  color: #4c4c4c;
+}
+
+.topic {
+  position: relative;
+
+  width: 60em;
+  margin-left: calc((100% - 60em)/2);
+}
+.topic-title {
+  font-size: 1.8em;
+  line-height: 2em;
+
+  margin-bottom: .5em;
+
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.topic-detail {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.topic-detail-desc {
+  display: inline-block;
+}
+
+.topic-detail-question {
+  margin-left: 5em;
+}
+
+.topic-detail-question-desc {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comment {
+  line-height: 0; /* without this line the result is like line-height: 2em; */
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.add-comment {
+  line-height: 2em; /* without this line the result is like line-height: 2em; */
+
+  color: #e0e0e0;
+}
+
+.topic-answer-content {
+  margin-left: 5em;
+}
+.topic-answer-content-content {
+  border-bottom: 1px solid #e0e0e0;
+}
+.topic-answer {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.note {
+  position: relative;
+}
+.note-up {
+  top: 0em;
+  height: 2em;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 5em;
+}
+.note-value {
+  top: 2em;
+  height: 2em;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 5em;
+}
+.note-down {
+  top: 4em;
+  height: 2em;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 5em;
+}

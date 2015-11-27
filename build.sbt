@@ -1,4 +1,4 @@
-name := """2015-11-27-authoaxbuster"""
+name := """2015-11-27-desinthoax"""
 
 version := "1.0-SNAPSHOT"
 
@@ -10,7 +10,8 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
-  specs2 % Test
+  specs2 % Test,
+  "org.pegdown" % "pegdown" % "1.6.0"
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
