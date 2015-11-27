@@ -2,7 +2,7 @@ package services
 
 import scala.concurrent.Future
 
-import models.{ Answer, Comment, Note, Topic }
+import models.{ Answer, Comment, Topic, Votes }
 
 object TopicService {
 
@@ -25,7 +25,9 @@ This should _not_ be a link: <a href="hehe">JSFiddle</a>.
     </div>
 
 Which appends ".source" to both divs with the class ".myClass".""",
-      note = Note(10, 2),
+      urls = Seq(
+        "http://truc.com"
+      ),
       comments = Seq(
         Comment("Hey, I can only agree with you"),
         Comment("Same here"),
@@ -33,15 +35,17 @@ Which appends ".source" to both divs with the class ".myClass".""",
       ),
       answers = Seq(
         Answer(
+          value = -1,
           content = """You can use the :last selector:
 
     $(".source").appendTo(".myClass:last");
 
 Updated fiddle""",
-          note = Note(53, 3),
+          votes = Votes(53, 3),
           comments = Seq(Comment("Nice catch"))
         ),
         Answer(
+          value = 1,
           content = "Honestly, I really don't know...",
           comments = Seq(
             Comment("Then why did you answered?"),
@@ -54,7 +58,6 @@ Updated fiddle""",
     Topic(
       title = "Des géants retrouvés au Caire",
       desc = "bla bla bla bla",
-      note = Note(10, 5),
       answers = Seq(Answer(), Answer(), Answer(), Answer()),
       nViews = 73
     ),
@@ -63,10 +66,12 @@ Updated fiddle""",
       desc = "bla bla bla bla"
     )
   )
-  private def update[A](f: => A): Future[A] = synchronized { Future.successful(f) }
+  private def sync[A](f: => A): Future[A] = synchronized { Future.successful(f) }
 
-  def getLast(): Future[Seq[Topic]] = update { all.take(10) }
+  def getLast(): Future[Seq[Topic]] = sync { all.take(10) }
 
-  def getById(id: String): Future[Option[Topic]] = update { all.find(_.id == id) }
+  def getById(id: String): Future[Option[Topic]] = sync { all.find(_.id == id) }
+
+  def getByUrl(url: String): Future[Option[Topic]] = sync { all.find(_.urls.contains(url)) }
 
 }

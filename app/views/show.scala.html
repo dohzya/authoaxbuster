@@ -11,7 +11,7 @@
     <div class="topic-detail">
       <div class="topic-detail-note note">
         <span class="note-up">▲</span>
-        <span class="note-value">@topic.note.value</span>
+        <span class="note-value">@(topic.confidence.toInt)</span>
         <span class="note-down">▼</span>
       </div>
       <div class="topic-detail-question">
@@ -27,11 +27,11 @@
       </div>
     </div>
     <div class="topic-answers">
-      @topic.answers.sortBy(_.note).map { answer =>
+      @topic.answers.sortBy(- _.confidence).map { answer =>
         <section class="topic-answer">
           <div class="topic-answer-note note">
             <span class="note-up">▲</span>
-            <span class="note-value">@answer.note.value</span>
+            <span class="note-value">@(answer.confidence.toInt)</span>
             <span class="note-down">▼</span>
           </div>
           <div class="topic-answer-content">
